@@ -1,0 +1,334 @@
+body {
+	background:	
+	url("../images/ornaments.png") no-repeat top left/100%, /* top*/
+	url("../images/snowflake.png") no-repeat top right/auto, /* middle*/
+	url("../images/stripes.jpg") repeat-y top left/cover; /* on-bottom*/
+	font-family: 'Text Me One';
+	font-weight:800;
+}
+h1 {
+	font-family: 'Baloo Thambi';
+	color: #ffffff;
+	font-variant: small-caps;
+	text-shadow: 2px 2px #b81f0b;
+}
+#app-title {
+  font-family: 'Rye', cursive;
+  color:#ffffff;
+  text-decoration: none;
+  font-size: 80px;
+  letter-spacing: 0px;
+  line-height: 1;
+  text-shadow: #b81f0b 3px 2px 0;
+  position: relative;
+  padding-bottom:5px;
+  margin-left: 15px;
+}
+#app-title:after {
+  content:"Blair Family Christmas Exchange";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+#app-title:after {
+  background: #dedcca;
+  background-size: 4px 4px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: -5;
+  display: block;
+  text-shadow: none;
+}
+.dataTables_wrapper .dataTables_filter input{
+	border-radius:5px;
+	border:1px solid #404040 !important;
+}
+table.dataTable thead th, table.dataTable tfoot th {
+	color: #7d0053;
+}
+.dataTables_wrapper {
+	background-color: rgba(255,255,255, 0.9);
+	border-radius:10px;
+	padding:3px;
+}
+.login_wrapper{
+	background-color: rgba(255,255,255, 0.8);
+	border-radius:10px;
+	padding:20px;	
+	margin: auto;
+	height:200px;
+	width: 400px;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.login_wrapper_error{
+	background-color: rgba(255,255,255, 0.8);
+	border-radius:10px;
+	padding:20px;	
+	margin: auto;
+	height:275px;
+	width: 400px;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.register_wrapper{
+	background-color: rgba(255,255,255, 0.8);
+	border-radius:10px;
+	padding:20px;	
+	margin: auto;
+	height:300px;
+	width: 400px;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.input-group {
+	padding-bottom: 2px;
+}
+.reg_wrapper{
+	background-color: rgba(255,255,255, 0.8);
+	border-radius:10px;
+	padding:20px;	
+	margin: auto;
+	height:575px;
+	width: 500px;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.reg_wrapper_error{
+	background-color: rgba(255,255,255, 0.8);
+	border-radius:10px;
+	padding:20px;	
+	margin: auto;
+	height:650px;
+	width: 500px;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+input[type=checkbox] {
+    content: "<span class="glyphicon glyphicon-unchecked"></span>";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 15px;
+    color: #f3f3f3;
+    text-align: center;
+    line-height: 15px;
+}
+.checkbox label:before {
+    border-radius: 3px;
+}
+input[type=checkbox]:checked {
+    content: "<span class="glyphicon glyphicon-ok"></span>";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 15px;
+    color: #f3f3f3;
+    text-align: center;
+    line-height: 15px;
+}
+.actionscol {
+	 white-space: nowrap;
+}
+.btn-collect {
+	background: transparent !important;
+	color: #D0D0D0 !important;
+	font-size: 125%;
+}
+.btn-collect:hover {
+	color: #B0B0B0 !important;
+}
+.btn-on {
+	color: #7d0053 !important;
+}
+.collect-select {
+	width: 150px !important;
+	display: inline;
+}
+.medium {  
+	width: 1.5em; 
+	height: 1.5em;
+}
+.form_wrapper{
+	background-color: rgba(255,255,255, 0.8);
+	border-radius:10px;
+	padding:20px;	
+	margin: 0 auto;
+	width: 600px;
+}
+.form_wrapper_error{
+	background-color: rgba(255,255,255, 0.8);
+	border-radius:10px;
+	padding:20px;	
+	margin: 0 auto;
+	width: 600px;
+}
+.form_wide_wrapper{
+	background-color: rgba(255,255,255, 0.8);
+	border-radius:10px;
+	padding:20px;	
+	margin: 0 auto;
+	width: 800px;
+}
+.form_bottom {
+	padding-bottom:10px;
+}
+.form_title {
+	font-family: 'Mr Bedfort', cursive;
+	font-size:25px;
+	color: #b81f0b;
+	border-bottom: 5px dotted #4f5c07;
+	margin-bottom:5px;
+}
+.treeicon {
+	color: #6a8f61;
+	text-shadow: 2px 2px #4f5c07;
+}
+.input-group-addon {
+	color: #828070 !important;
+	background-color: #dedcca !important;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.close {
+	padding-top:0px !important;
+	margin-top:0px;
+}
+.modal-title {
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 18px;
+}
+.ico-red {
+	font-size:150%;
+	color:red;
+}
+.ico-green {
+	font-size:150%;
+	color:green;
+}
+.item-image {
+	width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: #E0E0E0 1px solid;
+    padding: 5px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.btnAdd{
+	margin-bottom:5px;
+}
+
+/*------------------------------------*\
+    NAV
+\*------------------------------------*/
+body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldset, input, textarea, blockquote {
+	margin: 0; padding: 0; border: 0;
+}
+
+nav {
+	position: relative;
+    z-index: 5;
+	width: 100%;
+	margin:0px;
+	padding:0px;
+}
+
+.nav_back {
+	background: #b579a3; 
+	background: linear-gradient(top, #b579a3 0%, #8c0363 100%);  
+	background: -moz-linear-gradient(top, #b579a3 0%, #8c0363 100%); 
+	background: -webkit-linear-gradient(top, #b579a3 0%,#8c0363 100%); 
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	width: 100%;
+	margin:0px;
+	padding:0px;
+}
+
+nav ul ul {
+	display: none;
+}
+
+	nav ul li:hover > ul {
+		display: block;
+	}
+
+
+nav ul {
+	background: transparent; 
+	padding: 0px; 
+	list-style: none;
+	position: relative;
+	display: inline-table;
+	margin:0px;
+	padding:0px;
+}
+	nav ul:after {
+		content: ""; clear: both; display: block;
+	}
+
+	nav ul li {
+		float: left;		
+	}
+		nav ul li:hover {
+			background: #5c0241;
+			background: linear-gradient(top, #5c0241 0%, #69124d 40%);
+			background: -moz-linear-gradient(top, #5c0241 0%, #69124d 40%);
+			background: -webkit-linear-gradient(top, #5c0241 0%,#69124d 40%);
+		}
+			nav ul li:hover a {
+				color: #fff;
+			}
+		
+		nav ul li a {
+			display: block; padding: 10px 10px;
+			margin:0px;
+			color: #361029; text-decoration: none;
+		}
+		nav ul li a:focus {
+			display: block; padding: 10px 10px;
+			margin:0px;
+			color: #361029; text-decoration: none;
+		}
+			
+		
+	nav ul ul {
+		background: #78235a; border-radius: 0px; padding: 0px; /*base pull down menu color */
+		position: absolute; top: 100%;
+	}
+		nav ul ul li {
+			float: none; 
+			border-bottom: 1px solid #361029; position: relative;
+			border-collapse: collapse;
+		}
+			nav ul ul li a {
+				padding: 10px 10px;
+				color: #fff;
+			}	
+				nav ul ul li a:hover {
+					background: #5c0241; /*pulldown menu hover*/ 
+				}
+				nav ul ul li a:focus {
+					color: #ff03b3;
+					background: #5c0241; /*pulldown menu hover*/ 
+				}
+		
+	nav ul ul ul {
+		position: absolute; left: 100%; top:0;
+	}

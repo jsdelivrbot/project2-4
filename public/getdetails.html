@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Get Person</title>
+    <meta http-equiv="pragma" content="no-cache" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Advent Pro|Allerta Stencil' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container-fluid"> 
+        <div class="form_wrapper">
+            <div class="form_title">Get Person</div>
+            <form action="/getPerson" method="get" class="needs-validation">
+                <div class="row-fluid">
+                    <div class="form-group">
+                        <label for="id">Id:</label>
+                        <input type="number" name="id" id="id" class="form-control" value="" placeholder="Enter person id" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="submit" id="getResult" name="getResult" class="btn btn-primary pull-right" value="Get Details" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="button" id="getParent" name="getParent" class="btn btn-primary" value="Get Parents" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="button" id="getChildren" name="getChildren" class="btn btn-primary pull-right" value="Get Children" />
+                    </div>
+                </div>
+            </form>
+        </div>
+     </div>
+</body>
+</html>
