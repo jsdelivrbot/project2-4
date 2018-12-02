@@ -1,3 +1,3 @@
-﻿# Week10 - Project 2 Milestone 1 - Endpoints
+﻿# Week10 - Project 2 Milestone 2
 
 
