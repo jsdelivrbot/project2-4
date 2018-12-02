@@ -7,7 +7,7 @@ body {
 	font-weight:800;
 }
 h1 {
-	font-family: 'Baloo Thambi';
+	font-family: 'Sail';
 	color: #ffffff;
 	font-variant: small-caps;
 	text-shadow: 2px 2px #b81f0b;
@@ -82,7 +82,7 @@ table.dataTable thead th, table.dataTable tfoot th {
 	border-radius:10px;
 	padding:20px;	
 	margin: auto;
-	height:300px;
+	height:340px;
 	width: 400px;
 	position: absolute;
 	top:0;
@@ -185,7 +185,7 @@ input[type=checkbox]:checked {
 	padding-bottom:10px;
 }
 .form_title {
-	font-family: 'Mr Bedfort', cursive;
+	font-family: 'Sail', cursive;
 	font-size:25px;
 	color: #b81f0b;
 	border-bottom: 5px dotted #4f5c07;
@@ -204,6 +204,10 @@ a {
 }
 a:hover {
   text-decoration: none;
+}
+.alertmsg{
+    color:red;
+    font-weight:800;
 }
 .close {
 	padding-top:0px !important;

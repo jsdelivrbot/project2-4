@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User List</title>
+	<% include ../partials/header.ejs %>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" />
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+	<link rel="stylesheet" href="../dist/bootstrap-tagsinput.css">
+	<script src="../js/bootstrap-tagsinput.js"></script>
+	<script src="../js/userlist.js"></script>
+</head>
+<body>
+	<% include ../partials/app_title.ejs %>
+	<div class="container">
+	<form action="" method="post">
+	<div class="form_wide_wrapper">
+	<div class="form_title">User List</div>
+
+	<table id="UserList" class="dataTable striped">
+	<thead>
+		<tr>
+			<th scope="col" class="hide">User_Account_Id</th>
+			<th scope="col">Name</th>
+			<th scope="col">Email</th>
+			<th scope="col">Address1</th>
+			<th scope="col">Address2</th>
+			<th scope="col">City</th>
+			<th scope="col">State</th>
+			<th scope="col">Zip</th>
+		</tr>
+	<thead>
+	<tbody>
+	<% for(var i=0; i < users.length; i++) { %>
+       <tr>
+	       <td class="hide"><%= users[i].user_account_id %></td>
+         <td><%= users[i].last_name %>, <%= users[i].first_name %></td>
+         <td><%= users[i].email %></td>
+         <td><%= users[i].address1 %></td>
+		 <td><%= users[i].address2 %></td>
+		 <td><%= users[i].city %></td>
+		 <td><%= users[i].state %></td>
+		 <td><%= users[i].zip %></td>
+       </tr>
+    <% } %>
+	</tbody>
+	</table>
+	
+
+
+	</div><!--end form wrapper-->
+	</form>
+	</div><!-- end container-->
+</body>
+</html>

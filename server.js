@@ -1,63 +1,68 @@
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 5000;
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000;
 var pg = require('pg');
 const url = require('url');
-//var pinterestAPI = require('pinterest-api');
-var fs = require("fs");
-
 
 require('dotenv').load();
 var connectionString = process.env.DATABASE_URL;
 
 pg = require("pg");
 pg.defaults.ssl = true;
-const { Pool } = require("pg"); 
+const { Pool } = require("pg");
 const pool = new Pool({ connectionString: connectionString });
 
-app.set('port', port);
-app.use(express.static(__dirname + '/public'));
+express()
+    .use(express.static(path.join(__dirname, 'public')))
+    .set('views', path.join(__dirname, 'views'))
+    .set('view engine', 'ejs')
 
-app.get('/', function (request, response) {
-    response.sendfile(__dirname + '/public/' + 'login.html');
-});
+    .get('/', function (request, response) {
+        response.sendFile(__dirname + '/public/' + 'login.html');
+    })
 
-app.get('/getUser', function (request, response) {
-    getUser(request, response);
-});
+    .get('/', function (request, response) {
+        response.sendfile(__dirname + '/public/' + 'login.html');
+    })
 
-app.get('/getLogin', function (request, response) {
-    getLogin(request, response);
-});
+    .get('/getUser', function (request, response) {
+        getUser(request, response);
+    })
 
-app.get('/getAllUsers', function (request, response) {
-    getAllUsers(request, response);
-});
+    .get('/getProfile', function (request, response) {
+        getProfile(request, response);
+    })
 
-app.get('/getAllInterests', function (request, response) {
-    getAllnterests(request, response);
-});
+    .get('/getLogin', function (request, response) {
+        getLogin(request, response);
+    })
 
-app.get('/getUserInterests', function (request, response) {
-    getUserInterests(request, response);
-});
+    .get('/getAllUsers', function (request, response) {
+        getAllUsers(request, response);
+    })
 
-app.get('/getYears', function (request, response) {
-    getYears(request, response);
-});
+    .get('/getAllInterests', function (request, response) {
+        getAllnterests(request, response);
+    })
 
-app.get('/getUserYear', function (request, response) {
-    getUserYearInfo(request, response);
-});
+    .get('/getUserInterests', function (request, response) {
+        getUserInterests(request, response);
+    })
 
-app.get('/getBoardList', function (request, response) {
-    getBoardList(request, response);
-});
+    .get('/getYears', function (request, response) {
+        getYears(request, response);
+    })
 
-// Start the server running
-app.listen(app.get('port'), function () {
-    console.log('Node app is running on port', app.get('port'));
-});
+    .get('/getUserYear', function (request, response) {
+        getUserYearInfo(request, response);
+    })
+
+    .get('/getBoardList', function (request, response) {
+        getBoardList(request, response);
+    })
+ 
+    //start server running
+    .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
 function getUser(request, response) {
     var requestUrl = url.parse(request.url, true);
@@ -73,6 +78,26 @@ function getUser(request, response) {
         } else {
             var user = result[0];
             response.status(200).json(user);
+        }
+    });
+}
+
+function getProfile(request, response) {
+    var requestUrl = url.parse(request.url, true);
+    var id = requestUrl.query.id;
+
+    getUserFromDb(id, function (error, result) {
+
+        if (error || result == null || result.length != 1) {
+            response.status(500).json({
+                success: false,
+                data: error
+            });
+        } else {
+            var user = result[0];
+            var params = { user: user };
+            response.render('pages/userprofile', params)
+            //response.status(200).json(user);
         }
     });
 }
@@ -106,7 +131,10 @@ function getAllUsers(request, response) {
             });
         } else {
             var list = result;
-            response.status(200).json(list);
+
+            var params = { users: list };
+            response.render('pages/userlist', params)
+            //response.status(200).json(list);
         }
     });
 }
@@ -200,7 +228,11 @@ function getBoardList(request, response) {
 function getUserFromDb(id, callback) {
     console.log("Getting user from DB with id: " + id);
 
-    var sql = "SELECT user_account_id, email, password, first_name, last_name, address1, address2, city, state,zip FROM user_account WHERE user_account_id = $1::int";
+    //var sql = "SELECT user_account_id, email, password, first_name, last_name, address1, address2, city, state,zip, notes, colors FROM user_account WHERE user_account_id = $1::int";
+    var sql = "SELECT u.user_account_id, email, password, first_name, last_name, address1, address2, city, state,zip, notes, colors, string_agg(i.interest, ',') AS interests ";
+    sql += "FROM user_account u LEFT JOIN user_interest ui ON(u.user_account_id = ui.user_account_id) LEFT JOIN interest i ON(ui.interest_id = i.interest_id) ";
+    sql += "WHERE u.user_account_id = $1::int ";
+    sql += "GROUP BY u.user_account_id, email, password, first_name, last_name, address1, address2, city, state, zip, notes, colors";
     var params = [id];
 
     pool.query(sql, params, function (err, result) {
@@ -285,7 +317,7 @@ function getAllInterestsFromDb(callback) {
 }
 
 function getAllUserInterestsFromDb(id, callback) {
-    console.log("Getting interests from db for userid: " + id );
+    console.log("Getting interests from db for userid: " + id);
 
     var sql = "SELECT ui.user_account_id, ui.interest_id, i.interest  from user_interest ui JOIN interest i ON(ui.interest_id = i.interest_id) WHERE ui.user_account_id = $1::int";
     var params = [id];

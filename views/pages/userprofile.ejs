@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Profile</title>
+	<% include ../partials/header.ejs %>
+	<link rel="stylesheet" href="../dist/bootstrap-tagsinput.css">
+	<script src="../js/bootstrap-tagsinput.js"></script>
+</head>
+<body>
+	<% include ../partials/app_title.ejs %>
+	<div class="container">
+	<form action="" method="post">
+	<div class="form_wide_wrapper">
+	<div class="form_title">User Profile</div>
+	<div class="form-group">
+		<label for="username">Email:</label>
+		<input type="text" class="form-control" name="username" id="username" value="<%= user.email%>" required />
+		<input type="hidden" name="userAccountId" value="<%= user.user_account_id%>"/>
+	</div>
+	<div class="form-group">
+	  <label for="password">Password:</label>
+	  <input type="password" class="form-control" name="password" id="pwd" value="" required />
+	</div>
+	<div class="form-group">
+	  <label for="password">Confirm Password:</label>
+	  <input type="password" class="form-control" name="confirm_password" id="confirm_pwd" value="" required />
+	</div>
+	<div class="form-group">
+	  <label for="firstname">First Name:</label>
+	  <input type="text" class="form-control" name="firstname" id="firstname" value="<%= user.first_name%>" required />
+	</div>
+	<div class="form-group">
+	  <label for="lastname">Last Name:</label>
+	  <input type="text" class="form-control" name="lastname" id="lastname" value="<%= user.last_name%>" required />
+	</div>
+	<div class="form-group">
+	  <label for="address1">Address:</label>
+	  <input type="text" class="form-control" name="address1" id="address1" placeholder="Address 1" value="<%= user.address1%>" required /><br/>
+	  <input type="text" class="form-control" name="address2" id="address2" placeholder="Address2" value="<%= user.address2%>" />
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<input type="text" class="form-control" name="city" id="city" placeholder="City" value="<%= user.city%>" required />
+		</div>
+		<div class="col-md-2">
+			<input type="text" class="form-control" name="state" id="state" placeholder="State" value="<%= user.state%>" required maxlength="2" />
+		</div>
+		<div class="col-md-4">
+			<input type="text" class="form-control" name="zip" id="zip" placeholder="Zip" value="<%= user.zip%>" required maxlength="10" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+		<label for="notes">Note:</label>
+		<textarea class="form-control" rows="5" name="notes" id="notes" maxlength="2000"><%= user.notes%></textarea>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+		<label for="notes">Preferred Colors:</label>
+		<textarea class="form-control" rows="3" name="colors" id="colors" maxlength="2000"><%= user.colors%></textarea>
+		<div>
+	</div>
+	<div class="row col-md-12">
+		<label for="notes">Interests:</label>
+		<input type="text" value="<%= user.interests%>" data-role="tagsinput" id="tags" name="tags" class="form-control">
+	</div>
+	<div class="row form_bottom">
+		<div class="col-md-6">
+			<a href="userlist.php" class="btn btn-default" >Cancel</a>
+		</div>
+		<div class="col-md-6 pull-right text-right">
+				<input type="submit" name="Update" class="btn btn-primary" value="Update"/>
+		</div>
+	</div>
+
+	</div><!--end form wrapper-->
+	</form>
+	</div><!-- end container-->
+</body>
+</html>
